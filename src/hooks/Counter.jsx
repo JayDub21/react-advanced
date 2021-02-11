@@ -1,8 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 
 function Counter(props) {
   const [count, setCount] = useState(0);
   const [name, setName] = useState('');
+
+  useEffect(() => {
+    document.title = `${name} clicked ${count} times!`;
+  }, [name, count]);
+
   return (
     <Fragment>
       <br />
