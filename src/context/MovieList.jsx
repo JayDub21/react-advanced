@@ -13,7 +13,8 @@ class MovieList extends Component {
       <UserContext.Consumer>
         {(userContext) => (
           <div>
-            Class Component: {userContext.name}
+            Movie List{' '}
+            {userContext.currentUser ? userContext.currentUser.name : ''}
             <MovieRow />
           </div>
         )}
