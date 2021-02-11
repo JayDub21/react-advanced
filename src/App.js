@@ -1,16 +1,35 @@
 import './App.css';
 // import Movie from './hoc/Movie';
 // import Counter from './hooks/Counter';
-import Users from './hooks/Users';
+// import Users from './hooks/Users';
 
-function App() {
-  return (
-    <Users />
+import React, { Component } from 'react';
+import MoviePage from './context/MoviePage';
+import UserContext from './context/userContext';
 
-    // <Counter />
+class App extends Component {
+  state = { currentUser: { name: 'JW' } };
 
-    //   <Movie id={1} />;
-  );
+  render() {
+    return (
+      <UserContext.Provider value={this.state.currentUser}>
+        <div>
+          <MoviePage />
+        </div>
+      </UserContext.Provider>
+    );
+  }
 }
 
 export default App;
+
+// function App() {
+//   return (
+
+//     <Users />
+
+//     // <Counter />
+
+//     //   <Movie id={1} />;
+//   );
+// }
